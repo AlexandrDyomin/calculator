@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Калькулятор геометрических фигур</title>
+	<script src="geometry.js" type="module" async></script>
+	<script src="utils.js" type="module" async></script>
+	<script src="index.js"  type="module" defer></script>
+</head>
+<body>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			margin:  0;
+			padding: 10px;
+			min-height: 100vh;
+		}
+
+		h1, main {
+			margin: 0 auto 20px;
+			width: max-content;
+		}
+
+		select {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 15px;
+		}
+
+		.params {
+			margin-bottom: 15px;
+		}
+
+		label {
+			display: block;
+		}
+
+		input {
+			min-width: 235px;
+		}
+
+		input::placeholder {
+			color:  red;
+		}
+
+		output {
+			display: block;
+		}
+
+		.err {
+			display: none;
+			color:  red;
+		}
+	</style>
+
+	<h1>Калькулятор</h1>
+	<main>
+		<form class="calculator">
+			<select class="figures"> 
+				<option value="square" selected>Квадрат</option>
+				<option value="rectangle">Прямоугольник</option>
+				<option value="circle">Окружность</option>
+				<option value="triangle">Треугольник</option>
+			</select>
+			<div class="panel"></div>
+		</form>
+	</main>
+</body>
+
+<!-- ************************************************************************************** -->
+<template id="square">
+	<div class="params">
+		<label>Длина сторон квадрата: <input type="number"></label>
+	</div>
+	<div class="outputs">
+		<output>Периметр квадрата равен </output>
+		<output>Площадь квадрата равна </output>
+	</div>
+</template>
+
+<template id="rectangle">
+	<div class="params">
+		<label>Длина стороны <strong>a</strong> прямоугольника: <input type="number"></label>
+		<label>Длина стороны <strong>b</strong> прямоугольника: <input type="number"></label>
+	</div>
+	<div class="outputs">
+		<output>Периметр прямоугольника равен </output>
+		<output>Площадь прямоугольника равна </output>
+	</div>	
+</template>
+
+<template id="circle">
+	<div class="params">
+		<label>Радиус окружности: <input type="number"></label>
+	</div>
+	<div class="outputs">
+		<output>Длина окружности равна </output>
+		<output>Площадь окружности равна </output>
+	</div>	
+</template>
+
+<template id="triangle">
+	<div class="params">
+		<label>Длина стороны <strong>a</strong> треугольника: <input type="number"></label>
+		<label>Длина стороны <strong>b</strong> треугольника: <input type="number"></label>
+		<label>Длина стороны <strong>c</strong> треугольника: <input type="number"></label>
+	</div>
+	<div class="outputs">
+		<div class="err"></div>
+		<output>Площадь треугольника равна </output>
+	</div>	
+</template>
+</html>
